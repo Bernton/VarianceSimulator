@@ -9,18 +9,26 @@ namespace VarianceSimulator
     internal partial class Main : Form
     {
         private readonly RandomGenerator _random = new();
-        private readonly List<double> _values = new();
+        private readonly List<double> _values = new() { 0.0 };
+        private readonly string _earingsPerRollFormat = "0." + new string('#', 8);
+
+        private double CurrentValue => _values[^1];
 
         internal Main()
         {
             InitializeComponent();
             _chart.SetDoubleBuffered();
-            _values.Add(0);
         }
 
         private void OnChartPaint(object sender, PaintEventArgs e)
         {
-            _labelDollarPerRoll.Text = (Math.Round(_values[^1] / _values.Count, 2)) + " $ per roll\non average";
+            double highestValue = _values.Max();
+            double lowestValue = _values.Min();
+            double earningsPerRoll = CurrentValue / _values.Count;
+
+            _labelMaximumValue.Text = $"{highestValue:0.##} $";
+            _labelMinimumValue.Text = $"{lowestValue:0.##} $";
+            _labelEarningsPerRollValue.Text = $"{earningsPerRoll.ToString(_earingsPerRollFormat)} $";
 
             Graphics g = e.Graphics;
             Pen linePen = new(Color.LightGray, 1);
@@ -30,8 +38,6 @@ namespace VarianceSimulator
             int chartYMiddle = Round(_chart.Height / 2.0);
 
             double peak;
-            double highestValue = _values.Max();
-            double lowestValue = _values.Min();
 
             if (highestValue > Math.Abs(lowestValue))
             {
@@ -87,35 +93,44 @@ namespace VarianceSimulator
             return (int)Math.Round(number);
         }
 
+
+
+        private void Roll(int possibilities, double edge, double bet)
+        {
+            double randomNumber = _random.Next();
+
+            double edgeRatio = 1.0 + (edge / 100.0);
+            double chance = edgeRatio / possibilities;
+
+            bool isHit = randomNumber < chance;
+
+            double winning = isHit ? possibilities * bet : 0;
+            double newValue = CurrentValue + winning - bet;
+
+            _values.Add(newValue);
+        }
+
         private void OnButtonRollClick(object sender, EventArgs e)
         {
-            if (int.TryParse(_textBoxRollAmount.Text, out int interation) &&
-                int.TryParse(_textBoxPossibilies.Text, out int possibilies) &&
+            if (double.TryParse(_textBoxBetSize.Text, out double betSize) &&
+                int.TryParse(_textBoxRollAmount.Text, out int iterations) &&
+                int.TryParse(_textBoxPossibilies.Text, out int possibilities) &&
                 double.TryParse(_textBoxEdge.Text, out double edge))
             {
-                for (int i = 0; i < interation; i++)
+                for (int i = 0; i < iterations; i++)
                 {
-                    Roll(possibilies, edge, 1);
+                    Roll(possibilities, edge, betSize);
                 }
 
                 _chart.Invalidate();
             }
         }
 
-        private void Roll(int possibilies, double edge, double bet)
+        private void OnButtonResetClick(object sender, EventArgs e)
         {
-            double randomNumber = _random.Next();
-
-            double edgeRatio = 1.0 + (edge / 100.0);
-            double chance = edgeRatio / possibilies;
-
-            bool isHit = randomNumber < chance;
-
-            double winning = isHit ? possibilies * bet : 0;
-            double lastSum = _values[^1];
-            double newSum = lastSum + winning - bet;
-
-            _values.Add(newSum);
+            _values.Clear();
+            _values.Add(0.0);
+            _chart.Invalidate();
         }
     }
 }

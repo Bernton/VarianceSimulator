@@ -28,116 +28,237 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._buttonRoll = new System.Windows.Forms.Button();
-            this._textBoxRollAmount = new System.Windows.Forms.TextBox();
-            this._labelPossibilies = new System.Windows.Forms.Label();
-            this._textBoxPossibilies = new System.Windows.Forms.TextBox();
-            this._labelEdge = new System.Windows.Forms.Label();
-            this._textBoxEdge = new System.Windows.Forms.TextBox();
-            this._labelDollarPerRoll = new System.Windows.Forms.Label();
-            this._chart = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            _buttonRoll = new System.Windows.Forms.Button();
+            _textBoxRollAmount = new System.Windows.Forms.TextBox();
+            _labelPossibilies = new System.Windows.Forms.Label();
+            _textBoxPossibilies = new System.Windows.Forms.TextBox();
+            _labelEdge = new System.Windows.Forms.Label();
+            _textBoxEdge = new System.Windows.Forms.TextBox();
+            _labelEarningsPerRollValue = new System.Windows.Forms.Label();
+            _chart = new System.Windows.Forms.Panel();
+            _labelEarningsPerRoll = new System.Windows.Forms.Label();
+            _labelRollAmount = new System.Windows.Forms.Label();
+            _labelBetSize = new System.Windows.Forms.Label();
+            _textBoxBetSize = new System.Windows.Forms.TextBox();
+            _buttonReset = new System.Windows.Forms.Button();
+            _labelMinimum = new System.Windows.Forms.Label();
+            _labelMinimumValue = new System.Windows.Forms.Label();
+            _labelMaximum = new System.Windows.Forms.Label();
+            _labelMaximumValue = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // _buttonRoll
             // 
-            this._buttonRoll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._buttonRoll.Location = new System.Drawing.Point(742, 12);
-            this._buttonRoll.Name = "_buttonRoll";
-            this._buttonRoll.Size = new System.Drawing.Size(103, 23);
-            this._buttonRoll.TabIndex = 1;
-            this._buttonRoll.Text = "Roll X times for 1$";
-            this._buttonRoll.UseVisualStyleBackColor = true;
-            this._buttonRoll.Click += new System.EventHandler(this.OnButtonRollClick);
+            _buttonRoll.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _buttonRoll.Location = new System.Drawing.Point(867, 14);
+            _buttonRoll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            _buttonRoll.Name = "_buttonRoll";
+            _buttonRoll.Size = new System.Drawing.Size(120, 27);
+            _buttonRoll.TabIndex = 0;
+            _buttonRoll.Text = "Roll";
+            _buttonRoll.UseVisualStyleBackColor = true;
+            _buttonRoll.Click += OnButtonRollClick;
             // 
             // _textBoxRollAmount
             // 
-            this._textBoxRollAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._textBoxRollAmount.Location = new System.Drawing.Point(742, 41);
-            this._textBoxRollAmount.Name = "_textBoxRollAmount";
-            this._textBoxRollAmount.Size = new System.Drawing.Size(103, 20);
-            this._textBoxRollAmount.TabIndex = 4;
-            this._textBoxRollAmount.Text = "1";
+            _textBoxRollAmount.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _textBoxRollAmount.Location = new System.Drawing.Point(871, 157);
+            _textBoxRollAmount.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            _textBoxRollAmount.Name = "_textBoxRollAmount";
+            _textBoxRollAmount.Size = new System.Drawing.Size(114, 23);
+            _textBoxRollAmount.TabIndex = 3;
+            _textBoxRollAmount.Text = "1";
+            _textBoxRollAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // _labelPossibilies
             // 
-            this._labelPossibilies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._labelPossibilies.AutoSize = true;
-            this._labelPossibilies.Location = new System.Drawing.Point(739, 76);
-            this._labelPossibilies.Name = "_labelPossibilies";
-            this._labelPossibilies.Size = new System.Drawing.Size(94, 13);
-            this._labelPossibilies.TabIndex = 5;
-            this._labelPossibilies.Text = "Possibilies ( 1 / X )";
+            _labelPossibilies.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _labelPossibilies.AutoSize = true;
+            _labelPossibilies.Location = new System.Drawing.Point(869, 197);
+            _labelPossibilies.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            _labelPossibilies.Name = "_labelPossibilies";
+            _labelPossibilies.Size = new System.Drawing.Size(68, 15);
+            _labelPossibilies.TabIndex = 5;
+            _labelPossibilies.Text = "Possibilities";
             // 
             // _textBoxPossibilies
             // 
-            this._textBoxPossibilies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._textBoxPossibilies.Location = new System.Drawing.Point(742, 92);
-            this._textBoxPossibilies.Name = "_textBoxPossibilies";
-            this._textBoxPossibilies.Size = new System.Drawing.Size(103, 20);
-            this._textBoxPossibilies.TabIndex = 6;
-            this._textBoxPossibilies.Text = "2";
+            _textBoxPossibilies.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _textBoxPossibilies.Location = new System.Drawing.Point(869, 215);
+            _textBoxPossibilies.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            _textBoxPossibilies.Name = "_textBoxPossibilies";
+            _textBoxPossibilies.Size = new System.Drawing.Size(116, 23);
+            _textBoxPossibilies.TabIndex = 4;
+            _textBoxPossibilies.Text = "2";
+            _textBoxPossibilies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // _labelEdge
             // 
-            this._labelEdge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._labelEdge.AutoSize = true;
-            this._labelEdge.Location = new System.Drawing.Point(742, 124);
-            this._labelEdge.Name = "_labelEdge";
-            this._labelEdge.Size = new System.Drawing.Size(49, 13);
-            this._labelEdge.TabIndex = 7;
-            this._labelEdge.Text = "Edge (%)";
+            _labelEdge.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _labelEdge.AutoSize = true;
+            _labelEdge.Location = new System.Drawing.Point(869, 253);
+            _labelEdge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            _labelEdge.Name = "_labelEdge";
+            _labelEdge.Size = new System.Drawing.Size(54, 15);
+            _labelEdge.TabIndex = 7;
+            _labelEdge.Text = "Edge (%)";
             // 
             // _textBoxEdge
             // 
-            this._textBoxEdge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._textBoxEdge.Location = new System.Drawing.Point(742, 140);
-            this._textBoxEdge.Name = "_textBoxEdge";
-            this._textBoxEdge.Size = new System.Drawing.Size(103, 20);
-            this._textBoxEdge.TabIndex = 8;
-            this._textBoxEdge.Text = "0";
+            _textBoxEdge.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _textBoxEdge.Location = new System.Drawing.Point(869, 271);
+            _textBoxEdge.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            _textBoxEdge.Name = "_textBoxEdge";
+            _textBoxEdge.Size = new System.Drawing.Size(116, 23);
+            _textBoxEdge.TabIndex = 5;
+            _textBoxEdge.Text = "0";
+            _textBoxEdge.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // _labelDollarPerRoll
+            // _labelEarningsPerRollValue
             // 
-            this._labelDollarPerRoll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this._labelDollarPerRoll.AutoSize = true;
-            this._labelDollarPerRoll.Location = new System.Drawing.Point(751, 386);
-            this._labelDollarPerRoll.Name = "_labelDollarPerRoll";
-            this._labelDollarPerRoll.Size = new System.Drawing.Size(61, 26);
-            this._labelDollarPerRoll.TabIndex = 9;
-            this._labelDollarPerRoll.Text = "0 $ per roll\r\non average";
+            _labelEarningsPerRollValue.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            _labelEarningsPerRollValue.Location = new System.Drawing.Point(871, 455);
+            _labelEarningsPerRollValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            _labelEarningsPerRollValue.Name = "_labelEarningsPerRollValue";
+            _labelEarningsPerRollValue.Size = new System.Drawing.Size(114, 21);
+            _labelEarningsPerRollValue.TabIndex = 9;
+            _labelEarningsPerRollValue.Text = "0 $";
+            _labelEarningsPerRollValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // _chart
             // 
-            this._chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._chart.BackColor = System.Drawing.Color.White;
-            this._chart.Location = new System.Drawing.Point(12, 12);
-            this._chart.Name = "_chart";
-            this._chart.Size = new System.Drawing.Size(724, 400);
-            this._chart.TabIndex = 0;
-            this._chart.Paint += new System.Windows.Forms.PaintEventHandler(this.OnChartPaint);
-            this._chart.Resize += new System.EventHandler(this.OnChartResize);
+            _chart.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            _chart.BackColor = System.Drawing.Color.White;
+            _chart.Location = new System.Drawing.Point(14, 14);
+            _chart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            _chart.Name = "_chart";
+            _chart.Size = new System.Drawing.Size(845, 462);
+            _chart.TabIndex = 0;
+            _chart.Paint += OnChartPaint;
+            _chart.Resize += OnChartResize;
+            // 
+            // _labelEarningsPerRoll
+            // 
+            _labelEarningsPerRoll.AutoSize = true;
+            _labelEarningsPerRoll.Location = new System.Drawing.Point(893, 440);
+            _labelEarningsPerRoll.Name = "_labelEarningsPerRoll";
+            _labelEarningsPerRoll.Size = new System.Drawing.Size(90, 15);
+            _labelEarningsPerRoll.TabIndex = 10;
+            _labelEarningsPerRoll.Text = "Average per roll";
+            // 
+            // _labelRollAmount
+            // 
+            _labelRollAmount.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _labelRollAmount.AutoSize = true;
+            _labelRollAmount.Location = new System.Drawing.Point(871, 139);
+            _labelRollAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            _labelRollAmount.Name = "_labelRollAmount";
+            _labelRollAmount.Size = new System.Drawing.Size(72, 15);
+            _labelRollAmount.TabIndex = 11;
+            _labelRollAmount.Text = "Roll amount";
+            // 
+            // _labelBetSize
+            // 
+            _labelBetSize.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _labelBetSize.AutoSize = true;
+            _labelBetSize.Location = new System.Drawing.Point(871, 86);
+            _labelBetSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            _labelBetSize.Name = "_labelBetSize";
+            _labelBetSize.Size = new System.Drawing.Size(68, 15);
+            _labelBetSize.TabIndex = 13;
+            _labelBetSize.Text = "Bet size in $";
+            // 
+            // _textBoxBetSize
+            // 
+            _textBoxBetSize.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _textBoxBetSize.Location = new System.Drawing.Point(871, 104);
+            _textBoxBetSize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            _textBoxBetSize.Name = "_textBoxBetSize";
+            _textBoxBetSize.Size = new System.Drawing.Size(114, 23);
+            _textBoxBetSize.TabIndex = 2;
+            _textBoxBetSize.Text = "1";
+            _textBoxBetSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // _buttonReset
+            // 
+            _buttonReset.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            _buttonReset.Location = new System.Drawing.Point(867, 47);
+            _buttonReset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            _buttonReset.Name = "_buttonReset";
+            _buttonReset.Size = new System.Drawing.Size(120, 27);
+            _buttonReset.TabIndex = 1;
+            _buttonReset.Text = "Reset";
+            _buttonReset.UseVisualStyleBackColor = true;
+            _buttonReset.Click += OnButtonResetClick;
+            // 
+            // _labelMinimum
+            // 
+            _labelMinimum.AutoSize = true;
+            _labelMinimum.Location = new System.Drawing.Point(893, 401);
+            _labelMinimum.Name = "_labelMinimum";
+            _labelMinimum.Size = new System.Drawing.Size(75, 15);
+            _labelMinimum.TabIndex = 16;
+            _labelMinimum.Text = "Lowest value";
+            // 
+            // _labelMinimumValue
+            // 
+            _labelMinimumValue.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            _labelMinimumValue.Location = new System.Drawing.Point(871, 416);
+            _labelMinimumValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            _labelMinimumValue.Name = "_labelMinimumValue";
+            _labelMinimumValue.Size = new System.Drawing.Size(114, 21);
+            _labelMinimumValue.TabIndex = 15;
+            _labelMinimumValue.Text = "0 $";
+            _labelMinimumValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _labelMaximum
+            // 
+            _labelMaximum.AutoSize = true;
+            _labelMaximum.Location = new System.Drawing.Point(893, 362);
+            _labelMaximum.Name = "_labelMaximum";
+            _labelMaximum.Size = new System.Drawing.Size(79, 15);
+            _labelMaximum.TabIndex = 18;
+            _labelMaximum.Text = "Highest value";
+            // 
+            // _labelMaximumValue
+            // 
+            _labelMaximumValue.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            _labelMaximumValue.Location = new System.Drawing.Point(871, 377);
+            _labelMaximumValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            _labelMaximumValue.Name = "_labelMaximumValue";
+            _labelMaximumValue.Size = new System.Drawing.Size(114, 21);
+            _labelMaximumValue.TabIndex = 17;
+            _labelMaximumValue.Text = "0 $";
+            _labelMaximumValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 427);
-            this.Controls.Add(this._labelDollarPerRoll);
-            this.Controls.Add(this._textBoxEdge);
-            this.Controls.Add(this._labelEdge);
-            this.Controls.Add(this._textBoxPossibilies);
-            this.Controls.Add(this._labelPossibilies);
-            this.Controls.Add(this._textBoxRollAmount);
-            this.Controls.Add(this._buttonRoll);
-            this.Controls.Add(this._chart);
-            this.MinimumSize = new System.Drawing.Size(300, 200);
-            this.Name = "Main";
-            this.Text = "Variance Simulator";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1000, 493);
+            Controls.Add(_labelMaximum);
+            Controls.Add(_labelMaximumValue);
+            Controls.Add(_labelMinimum);
+            Controls.Add(_labelMinimumValue);
+            Controls.Add(_buttonReset);
+            Controls.Add(_labelBetSize);
+            Controls.Add(_textBoxBetSize);
+            Controls.Add(_labelRollAmount);
+            Controls.Add(_labelEarningsPerRoll);
+            Controls.Add(_labelEarningsPerRollValue);
+            Controls.Add(_textBoxEdge);
+            Controls.Add(_labelEdge);
+            Controls.Add(_textBoxPossibilies);
+            Controls.Add(_labelPossibilies);
+            Controls.Add(_textBoxRollAmount);
+            Controls.Add(_buttonRoll);
+            Controls.Add(_chart);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MinimumSize = new System.Drawing.Size(347, 225);
+            Name = "Main";
+            Text = "Variance Simulator";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -149,8 +270,16 @@
         private System.Windows.Forms.TextBox _textBoxPossibilies;
         private System.Windows.Forms.Label _labelEdge;
         private System.Windows.Forms.TextBox _textBoxEdge;
-        private System.Windows.Forms.Label _labelDollarPerRoll;
-
+        private System.Windows.Forms.Label _labelEarningsPerRollValue;
+        private System.Windows.Forms.Label _labelEarningsPerRoll;
+        private System.Windows.Forms.Label _labelRollAmount;
+        private System.Windows.Forms.Label _labelBetSize;
+        private System.Windows.Forms.TextBox _textBoxBetSize;
+        private System.Windows.Forms.Button _buttonReset;
+        private System.Windows.Forms.Label _labelMinimum;
+        private System.Windows.Forms.Label _labelMinimumValue;
+        private System.Windows.Forms.Label _labelMaximum;
+        private System.Windows.Forms.Label _labelMaximumValue;
     }
 }
 
